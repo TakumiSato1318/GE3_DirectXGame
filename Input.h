@@ -16,13 +16,23 @@ public: //メンバ関数
 	void Initialaize(HINSTANCE hInstance,HWND hwnd);
 	//更新
 	void Update();
-	//
+	/// <summary>
+	/// 
+	/// </summary>
+	/// <param name="keyNumber"></param>
+	/// <returns></returns>
 	bool PushKey(BYTE keyNumber);
+	/// <summary>
+	/// 
+	/// </summary>
+	bool TriggerKey(BYTE keyNumber);
 
 private: //メンバ変数
 	//キーボードのデバイス
 	ComPtr<IDirectInputDevice8> keyboard;
 	//全キーの状態
 	BYTE key[256] = {};
+	//前回の全キーの状態
+	BYTE keyPre[256] = {};
 
 };
